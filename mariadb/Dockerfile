@@ -9,4 +9,4 @@ RUN apk update && apk upgrade && \
 ADD entrypoint.sh /entrypoint.sh
 
 EXPOSE 3306
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

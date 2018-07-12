@@ -1,5 +1,5 @@
-#FROM containerstack/alpine:3.8.0-armhf
-FROM containerstack/alpine:3.8.0
+FROM containerstack/alpine:3.8.0-armhf
+#FROM containerstack/alpine:3.8.0
 
 LABEL maintainer="Remon Lam <remon@containerstack.io>"
 

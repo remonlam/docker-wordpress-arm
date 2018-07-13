@@ -7,7 +7,7 @@ RUN apk update && apk upgrade && \
     apk add mariadb mysql-client pwgen && \
     rm -rf /var/cache/apk/*
 
-ADD entrypoint.sh /entrypoint.sh
+ADD entrypoint /entrypoint
 
 EXPOSE 3306
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint"]

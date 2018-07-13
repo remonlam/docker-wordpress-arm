@@ -9,7 +9,7 @@ RUN apk update && apk upgrade && \
     rm -rf /etc/mysql/my.cnf
 
 ADD entrypoint /entrypoint
-ADD my2.cnf /etc/mysql/my.cnf
+ADD my.cnf /etc/mysql/my.cnf
 
 EXPOSE 3306
 ENTRYPOINT ["/entrypoint"]

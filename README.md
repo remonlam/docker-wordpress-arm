@@ -47,7 +47,7 @@ docker run \
   --env MYSQL_DATABASE="wordpress" \
   --env MYSQL_USER="wordpress" \
   --env MYSQL_PASSWORD="password123" \
-  --publish 3306 \
+  --publish 3306:3306 \
   remonlam/docker-wordpress-arm:mariadb-armhf
 ````
 

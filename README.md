@@ -13,9 +13,3 @@ docker run -d --name wordpress --link mariadb --volume /home/remonlam/shared/wor
 
 ### Running nginx proxy;
 docker run -d --link wordpress --volume /home/remonlam/shared/nginx:/etc/nginx/conf.d --volume /home/remonlam/shared/wordpress:/var/www/html --name nginx-proxy -p 80:80 nginx-armhf
-
---volume nginx:/etc/nginx/conf.d --volume wordpress:/var/www/html
-volumes:
-        - ./nginx:/etc/nginx/conf.d
-        - ./logs/nginx:/var/log/nginx
-        - ./wordpress:/var/www/html

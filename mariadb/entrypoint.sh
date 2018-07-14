@@ -1,7 +1,5 @@
 #!/bin/sh
-
-# execute any pre-init scripts, useful for images
-# based on this image
+# execute any pre-init scripts
 for i in /scripts/pre-init.d/*sh
 do
 	if [ -e "${i}" ]; then
@@ -10,13 +8,18 @@ do
 	fi
 done
 
-if [ ! -d "/run/mysqld" ]; then
+if [ -d "/run/mysqld" ]; then
+	echo "[i] mysqld already present, skipping creation"
+	chown -R mysql:mysql /run/mysqld
+else
+	echo "[i] mysqld not found, creating...."
 	mkdir -p /run/mysqld
 	chown -R mysql:mysql /run/mysqld
 fi
 
 if [ -d /var/lib/mysql/mysql ]; then
 	echo "[i] MySQL directory already present, skipping creation"
+	chown -R mysql:mysql /var/lib/mysql
 else
 	echo "[i] MySQL data directory not found, creating initial DBs"
 
@@ -41,9 +44,8 @@ else
 	cat << EOF > $tfile
 USE mysql;
 FLUSH PRIVILEGES;
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-UPDATE user SET password=PASSWORD("$MYSQL_ROOT_PASSWORD") WHERE user='root';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' identified by '$MYSQL_ROOT_PASSWORD' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' identified by '$MYSQL_ROOT_PASSWORD' WITH GRANT OPTION;
 UPDATE user SET password=PASSWORD("") WHERE user='root' AND host='localhost';
 EOF
 
@@ -61,8 +63,7 @@ EOF
 	rm -f $tfile
 fi
 
-# execute any pre-exec scripts, useful for images
-# based on this image
+# execute any pre-exec scripts
 for i in /scripts/pre-exec.d/*sh
 do
 	if [ -e "${i}" ]; then

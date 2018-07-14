@@ -1,6 +1,10 @@
 # Wordpress stack for ARM devices
 
-## Still a work in progress
+## What is this?
+This repo contains a Dockerized Wordpress stack based on the following components;
+- MariaDB (Database backend, it a replacement for MySQL)
+- PHP/Wordpress (the webserver hosting Wordpress itself)
+- NGINX (publish the webserver to the outside world)
 
 
 ## staring the stuff;

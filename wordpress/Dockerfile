@@ -2,9 +2,9 @@ FROM remonlam/docker-wordpress-arm:php-armhf
 #FROM php-armhf
 #FROM php-amd64
 
-# docker-entrypoint.sh dependencies
+# entrypoint.sh dependencies
 RUN apk add --no-cache \
-# in theory, docker-entrypoint.sh is POSIX-compliant, but priority is a working, consistent image
+# in theory, entrypoint.sh is POSIX-compliant, but priority is a working, consistent image
 		bash \
 # BusyBox sed is not sufficient for some of our sed expressions
 		sed
@@ -53,7 +53,7 @@ RUN set -ex; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /usr/src/wordpress
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY entrypoint.sh /usr/local/bin/
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["php-fpm"]

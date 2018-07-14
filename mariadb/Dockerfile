@@ -1,15 +1,16 @@
 FROM containerstack/alpine:3.7.0-armhf
-#FROM containerstack/alpine:3.8.0
-
 LABEL maintainer="Remon Lam <remon@containerstack.io>"
 
-RUN apk update && apk upgrade && \
-    apk add mariadb mysql-client pwgen && \
-    rm -rf /var/cache/apk/* && \
-    rm -rf /etc/mysql/my.cnf
+RUN apk --update add mariadb mariadb-client pwgen && \
+    rm -f /var/cache/apk/*
 
-ADD entrypoint /entrypoint
-ADD my.cnf /etc/mysql/my.cnf
+ADD files/run.sh /scripts/run.sh
+RUN mkdir /scripts/pre-exec.d && \
+    mkdir /scripts/pre-init.d && \
+    chmod -R 755 /scripts
 
 EXPOSE 3306
-ENTRYPOINT ["/entrypoint"]
+
+VOLUME ["/var/lib/mysql"]
+
+ENTRYPOINT ["/scripts/run.sh"]

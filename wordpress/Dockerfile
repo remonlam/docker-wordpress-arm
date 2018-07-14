@@ -1,5 +1,4 @@
 FROM remonlam/docker-wordpress-arm:php-armhf
-#FROM php-amd64
 
 # entrypoint.sh dependencies
 RUN apk add --no-cache \

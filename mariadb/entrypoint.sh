@@ -1,12 +1,12 @@
 #!/bin/sh
 # execute any pre-init scripts
-for i in /scripts/pre-init.d/*sh
-do
-	if [ -e "${i}" ]; then
-		echo "[i] pre-init.d - processing $i"
-		. "${i}"
-	fi
-done
+#for i in /scripts/pre-init.d/*sh
+#do
+#	if [ -e "${i}" ]; then
+#		echo "[i] pre-init.d - processing $i"
+#		. "${i}"
+#	fi
+#done
 
 if [ -d "/run/mysqld" ]; then
 	echo "[i] mysqld already present, skipping creation"

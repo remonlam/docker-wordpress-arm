@@ -1,4 +1,5 @@
-FROM php-armhf
+FROM remonlam/docker-wordpress-arm:php-armhf
+#FROM php-armhf
 #FROM php-amd64
 
 # docker-entrypoint.sh dependencies

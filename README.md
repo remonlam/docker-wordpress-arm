@@ -18,8 +18,13 @@ The prefer way is to store this somewhere else, but for testing this is fine.
 - wordpress [/home/[user]/shared/mariadb
 - nginx [/home/[user]/shared/nginx
 
+
+## Running the containers
+Befor running the containers make sure the directories has been created.
+
 ### Running the database;
 
+````sh
 docker run \
   --detach \
   --name mariadb \
@@ -30,7 +35,7 @@ docker run \
   --env MYSQL_PASSWORD="password123" \
   --publish 3306 \
   remonlam/docker-wordpress-arm:mariadb-armhf
-
+````
 
 ### Running the webserver;
 

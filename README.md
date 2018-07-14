@@ -19,6 +19,16 @@ The prefer way is to store this somewhere else, but for testing this is fine.
 - nginx [/home/[user]/shared/nginx
 
 
+## Sources
+This repo contains all the code to build the containers yourself, however it could save some time to use the prebuild images from the [Docker Hub](https://).
+NOTE: it could take up to 20 minutes to build the php image.
+
+### Image problems;
+Building some images on the Raspberry Pi could take even longer than 30 minutes and may end up with out of memory errors.
+This happens because the system is running out of memory during the build process.
+
+For this reason I've build the images on a [Asus Thinker Board](https://www.asus.com/us/Single-Board-Computer/Tinker-Board/) with 2GB of memory.
+
 ## Running the containers
 Befor running the containers make sure the directories has been created.
 

@@ -11,6 +11,13 @@ This repo contains a Dockerized Wordpress stack based on the following component
 Because some files are shared between the wordpress and nginx container, it's required to have a shared directory for both containers.
 For testing this could be done on for example your notebook/desktop but even better if you have a NAS or NFS server running in the network is to store the files on a NAS.
 
+### Directory structure;
+In the example commands shown here below the directory structure is created in the home folder.
+The prefer way is to store this somewhere else, but for testing this is fine.
+- mariadb [/home/[user]/shared/mariadb
+- wordpress [/home/[user]/shared/mariadb
+- nginx [/home/[user]/shared/nginx
+
 ### Running the database;
 
 docker run \

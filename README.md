@@ -35,7 +35,6 @@ docker run \
   remonlam/docker-wordpress-arm:wordpress-armhf
 
 
-
 ### Running nginx proxy;
 
 docker run \

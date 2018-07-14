@@ -6,7 +6,6 @@ This repo contains a Dockerized Wordpress stack based on the following component
 - PHP/Wordpress (the webserver hosting Wordpress itself)
 - NGINX (publish the webserver to the outside world)
 
-
 ## Storage requirements
 Because some files are shared between the wordpress and nginx container, it's required to have a shared directory for both containers. <br>
 For testing this could be done on for example your notebook/desktop but even better if you have a NAS or NFS server running in the network is to store the files on a NAS.
@@ -23,6 +22,9 @@ The prefer way is to store this somewhere else, but for testing this is fine.
 This repo contains all the code to build the containers yourself, however it could save some time to use the prebuild images from the [Docker Hub](https://hub.docker.com/r/remonlam/docker-wordpress-arm/). <br>
 NOTE: it could take up to 20 minutes to build the php image.
 
+### Base images
+The images are based on Alpine 3.7.0 (armhf/armv7)
+
 ### Image problems;
 Building some images on the Raspberry Pi could take even longer than 30 minutes and may end up with out of memory errors. <br>
 This happens because the system is running out of memory during the build process. <br>
@@ -30,7 +32,8 @@ This happens because the system is running out of memory during the build proces
 For this reason I've build the images on a [Asus Thinker Board](https://www.asus.com/us/Single-Board-Computer/Tinker-Board/) with 2GB of memory.
 
 ## Running the containers
-Befor running the containers make sure the directories has been created.
+Before running the containers make sure the directories has been created.
+The containers should be started in the following order: 1 MariaDB, 2 Wordpress and 3 Nginx
 
 ### Running the database;
 To run the database container, execute the following code;

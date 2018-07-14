@@ -5,9 +5,9 @@ RUN apk --update add mariadb mariadb-client pwgen && \
     rm -f /var/cache/apk/*
 
 ADD entrypoint.sh /entrypoint.sh
-RUN mkdir /scripts/pre-exec.d && \
-    mkdir /scripts/pre-init.d && \
-    chmod -R 755 /scripts
+#RUN mkdir /scripts/pre-exec.d && \
+#    mkdir /scripts/pre-init.d && \
+#    chmod -R 755 /scripts
 
 EXPOSE 3306
 

@@ -24,6 +24,18 @@ docker run \
 docker run -d --name wordpress --link mariadb --volume /home/remonlam/shared/wordpress:/var/www/html -e WORDPRESS_TABLE_PREFIX=wp_ -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=password123 -p 9000:9000 remonlam/docker-wordpress-arm:wordpress-armhf
 
 
+docker run \
+  --detach \
+  --name wordpress \
+  --link mariadb \
+  --volume /home/remonlam/shared/wordpress:/var/www/html \
+  --env WORDPRESS_TABLE_PREFIX="wp_" \
+  --env WORDPRESS_DB_HOST="mariadb" \
+  --env WORDPRESS_DB_NAME="wordpress" \
+  --env WORDPRESS_DB_USER="wordpress" \
+  --env WORDPRESS_DB_PASSWORD="password123" \
+  --publish 9000:9000 \
+  remonlam/docker-wordpress-arm:wordpress-armhf
 
 
 

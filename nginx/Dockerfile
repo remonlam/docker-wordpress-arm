@@ -147,4 +147,7 @@ EXPOSE 80
 
 STOPSIGNAL SIGTERM
 
+VOLUME ["/etc/nginx/conf.d"]
+VOLUME ["/var/www/html"]
+
 CMD ["nginx", "-g", "daemon off;"]

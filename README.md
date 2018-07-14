@@ -7,14 +7,16 @@ This repo contains a Dockerized Wordpress stack based on the following component
 - NGINX (publish the webserver to the outside world)
 
 
-## staring the stuff;
+## Storage requirements
+Because some files are shared between the wordpress and nginx container, it's required to have a shared directory for both containers.
+For testing this could be done on for example your notebook/desktop but even better if you have a NAS or NFS server running in the network is to store the files on a NAS.
 
 ### Running the database;
 
 docker run \
   --detach \
   --name mariadb \
-  --volume /home/remonlam/shared/mariadb:/var/lib/mysql \
+  --volume /home/[user]/shared/mariadb:/var/lib/mysql \
   --env MYSQL_ROOT_PASSWORD="rootpassword123" \
   --env MYSQL_DATABASE="wordpress" \
   --env MYSQL_USER="wordpress" \
@@ -29,7 +31,7 @@ docker run \
   --detach \
   --name wordpress \
   --link mariadb \
-  --volume /home/remonlam/shared/wordpress:/var/www/html \
+  --volume /home/[user]/shared/wordpress:/var/www/html \
   --env WORDPRESS_TABLE_PREFIX="wp_" \
   --env WORDPRESS_DB_HOST="mariadb" \
   --env WORDPRESS_DB_NAME="wordpress" \
@@ -45,7 +47,7 @@ docker run \
   --detach \
   --name nginx \
   --link wordpress \
-  --volume /home/remonlam/shared/nginx:/etc/nginx/conf.d \
-  --volume /home/remonlam/shared/wordpress:/var/www/html \
+  --volume /home/[user]/shared/nginx:/etc/nginx/conf.d \
+  --volume /home/[user]/shared/wordpress:/var/www/html \
   --publish 80:80 \
   remonlam/docker-wordpress-arm:nginx-armhf

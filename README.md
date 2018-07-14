@@ -8,11 +8,11 @@ This repo contains a Dockerized Wordpress stack based on the following component
 
 
 ## Storage requirements
-Because some files are shared between the wordpress and nginx container, it's required to have a shared directory for both containers.
+Because some files are shared between the wordpress and nginx container, it's required to have a shared directory for both containers. <br>
 For testing this could be done on for example your notebook/desktop but even better if you have a NAS or NFS server running in the network is to store the files on a NAS.
 
 ### Directory structure;
-In the example commands shown here below the directory structure is created in the home folder.
+In the example commands shown here below the directory structure is created in the home folder. <br>
 The prefer way is to store this somewhere else, but for testing this is fine.
 - mariadb [/home/[user]/shared/mariadb
 - wordpress [/home/[user]/shared/mariadb
@@ -20,12 +20,12 @@ The prefer way is to store this somewhere else, but for testing this is fine.
 
 
 ## Sources
-This repo contains all the code to build the containers yourself, however it could save some time to use the prebuild images from the [Docker Hub](https://hub.docker.com/r/remonlam/docker-wordpress-arm/).
+This repo contains all the code to build the containers yourself, however it could save some time to use the prebuild images from the [Docker Hub](https://hub.docker.com/r/remonlam/docker-wordpress-arm/). <br>
 NOTE: it could take up to 20 minutes to build the php image.
 
 ### Image problems;
-Building some images on the Raspberry Pi could take even longer than 30 minutes and may end up with out of memory errors.
-This happens because the system is running out of memory during the build process.
+Building some images on the Raspberry Pi could take even longer than 30 minutes and may end up with out of memory errors. <br>
+This happens because the system is running out of memory during the build process. <br>
 
 For this reason I've build the images on a [Asus Thinker Board](https://www.asus.com/us/Single-Board-Computer/Tinker-Board/) with 2GB of memory.
 

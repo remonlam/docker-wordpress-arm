@@ -23,6 +23,7 @@ The prefer way is to store this somewhere else, but for testing this is fine.
 Befor running the containers make sure the directories has been created.
 
 ### Running the database;
+To run the database container, execute the following code;
 
 ````sh
 docker run \
@@ -38,7 +39,9 @@ docker run \
 ````
 
 ### Running the webserver;
+To run the webserver container, execute the following code;
 
+````sh
 docker run \
   --detach \
   --name wordpress \
@@ -51,10 +54,12 @@ docker run \
   --env WORDPRESS_DB_PASSWORD="password123" \
   --publish 9000:9000 \
   remonlam/docker-wordpress-arm:wordpress-armhf
-
+````
 
 ### Running nginx proxy;
+To run the nginx container, execute the following code;
 
+````sh
 docker run \
   --detach \
   --name nginx \
@@ -63,3 +68,4 @@ docker run \
   --volume /home/[user]/shared/wordpress:/var/www/html \
   --publish 80:80 \
   remonlam/docker-wordpress-arm:nginx-armhf
+````

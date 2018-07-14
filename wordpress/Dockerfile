@@ -55,5 +55,7 @@ RUN set -ex; \
 
 COPY entrypoint.sh /usr/local/bin/
 
+VOLUME ["/var/www/html"]
+
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["php-fpm"]

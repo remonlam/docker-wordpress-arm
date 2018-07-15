@@ -17,6 +17,8 @@ The prefer way is to store this somewhere else, but for testing this is fine.
 - wordpress [/home/[user]/shared/mariadb
 - nginx [/home/[user]/shared/nginx
 
+### Nginx config
+In order to get the Nginx instance running, it's required to copy the ./nginx/server.conf to the shared directory (for example: ../shared/nginx).
 
 ## Sources
 This repo contains all the code to build the containers yourself, however it could save some time to use the prebuild images from the [Docker Hub](https://hub.docker.com/r/remonlam/docker-wordpress-arm/). <br>
@@ -30,6 +32,7 @@ Building some images on the Raspberry Pi could take even longer than 30 minutes 
 This happens because the system is running out of memory during the build process. <br>
 
 For this reason I've build the images on a [Asus Thinker Board](https://www.asus.com/us/Single-Board-Computer/Tinker-Board/) with 2GB of memory.
+
 
 ## Running the containers
 Before running the containers make sure the directories has been created.
@@ -69,7 +72,7 @@ docker run \
   remonlam/docker-wordpress-arm:wordpress-armhf
 ````
 
-### Running nginx proxy;
+### Running nginx;
 To run the nginx container, execute the following code;
 
 ````sh

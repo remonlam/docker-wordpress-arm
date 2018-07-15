@@ -140,7 +140,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 RUN rm -rf /etc/nginx/conf.d/
-COPY server.conf /etc/nginx/conf.d/
+#COPY server.conf /etc/nginx/conf.d/    # this is moved to a volume #
 
 EXPOSE 80
 

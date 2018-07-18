@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mariadb:
+    # replace username/repo:tag with your name and image details
+    image: remonlam/docker-wordpress-arm:mariadb-armhf
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "4000:80"
+    networks:
+      - webnet
+networks:
+  webnet:
+
+
+docker run \
+  --detach \
+  --name mariadb \
+  --volume /home/[user]/shared/mariadb:/var/lib/mysql \
+  --env MYSQL_ROOT_PASSWORD="rootpassword123" \
+  --env MYSQL_DATABASE="wordpress" \
+  --env MYSQL_USER="wordpress" \
+  --env MYSQL_PASSWORD="password123" \
+  --publish 3306:3306 \
+  remonlam/docker-wordpress-arm:mariadb-armhf

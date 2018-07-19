@@ -12,7 +12,6 @@ services:
       - type: bind
         source: /home/[user]/shared/mariadb
         target: /var/lib/mysq
-
     deploy:
       replicas: 1
       resources:

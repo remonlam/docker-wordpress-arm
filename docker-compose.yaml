@@ -17,7 +17,7 @@ services:
       resources:
         limits:
           cpus: "0.1"
-          memory: 500M
+          memory: 200M
       restart_policy:
         condition: always
     ports:
@@ -54,7 +54,7 @@ services:
       resources:
         limits:
           cpus: "0.1"
-          memory: 500M
+          memory: 50M
       restart_policy:
         condition: always
     ports:

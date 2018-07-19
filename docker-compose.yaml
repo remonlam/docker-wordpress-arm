@@ -1,7 +1,7 @@
 version: "3"
 services:
   mariadb:
-]    image: remonlam/docker-wordpress-arm:mariadb-armhf
+    image: remonlam/docker-wordpress-arm:mariadb-armhf
     deploy:
       replicas: 1
       resources:
@@ -16,7 +16,7 @@ services:
       - backend
 
   wordpress:
-]    image: remonlam/docker-wordpress-arm:wordpress-armhf
+    image: remonlam/docker-wordpress-arm:wordpress-armhf
     deploy:
       replicas: 1
       resources:
@@ -31,9 +31,8 @@ services:
       - backend
       - frontend
 
-
   nginx:
-]    image: remonlam/docker-wordpress-arm:nginx-armhf
+    image: remonlam/docker-wordpress-arm:nginx-armhf
     deploy:
       replicas: 1
       resources:
@@ -46,8 +45,6 @@ services:
       - "80:80"
     networks:
       - frontend
-
-
 
 networks:
   backend:

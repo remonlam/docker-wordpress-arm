@@ -31,6 +31,24 @@ services:
       - backend
       - frontend
 
+
+  nginx:
+]    image: remonlam/docker-wordpress-arm:nginx-armhf
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 500M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - frontend
+
+
+
 networks:
   backend:
   frontend:

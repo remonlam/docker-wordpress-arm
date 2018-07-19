@@ -8,7 +8,6 @@ services:
     - MYSQL_DATABASE="wordpress"
     - MYSQL_USER="wordpress"
     - MYSQL_PASSWORD="password123"
-    -
     deploy:
       replicas: 1
       resources:
@@ -25,7 +24,11 @@ services:
   wordpress:
     image: remonlam/docker-wordpress-arm:wordpress-armhf
     environment:
-    - DEBUG=1
+    - WORDPRESS_TABLE_PREFIX="wp_"
+    --env WORDPRESS_DB_HOST="mariadb"
+    --env WORDPRESS_DB_NAME="wordpress"
+    --env WORDPRESS_DB_USER="wordpress"
+    --env WORDPRESS_DB_PASSWORD="password123"
     deploy:
       replicas: 1
       resources:

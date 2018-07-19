@@ -25,10 +25,10 @@ services:
     image: remonlam/docker-wordpress-arm:wordpress-armhf
     environment:
     - WORDPRESS_TABLE_PREFIX="wp_"
-    --env WORDPRESS_DB_HOST="mariadb"
-    --env WORDPRESS_DB_NAME="wordpress"
-    --env WORDPRESS_DB_USER="wordpress"
-    --env WORDPRESS_DB_PASSWORD="password123"
+    - WORDPRESS_DB_HOST="mariadb"
+    - WORDPRESS_DB_NAME="wordpress"
+    - WORDPRESS_DB_USER="wordpress"
+    - WORDPRESS_DB_PASSWORD="password123"
     deploy:
       replicas: 1
       resources:
@@ -61,14 +61,3 @@ services:
 networks:
   backend:
   frontend:
-
-docker run \
-  --detach \
-  --name mariadb \
-  --volume /home/[user]/shared/mariadb:/var/lib/mysql \
-  --env MYSQL_ROOT_PASSWORD="rootpassword123" \
-  --env MYSQL_DATABASE="wordpress" \
-  --env MYSQL_USER="wordpress" \
-  --env MYSQL_PASSWORD="password123" \
-  --publish 3306:3306 \
-  remonlam/docker-wordpress-arm:mariadb-armhf

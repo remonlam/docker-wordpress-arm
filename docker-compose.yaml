@@ -6,7 +6,7 @@ services:
     - MYSQL_ROOT_PASSWORD="rootpassword123"
     - YSQL_ROOT_PASSWORD="rootpassword123
     - MYSQL_DATABASE="wordpress"
-    -- MYSQL_USER="wordpress"
+    - MYSQL_USER="wordpress"
     - MYSQL_PASSWORD="password123"
     -
     deploy:

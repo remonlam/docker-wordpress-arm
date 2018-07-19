@@ -10,7 +10,7 @@ services:
     - MYSQL_PASSWORD="password123"
     volumes:
       - type: bind
-        source: /home/[user]/shared/mariadb
+        source: /home/remonlam/shared/mariadb
         target: /var/lib/mysq
     deploy:
       replicas: 1

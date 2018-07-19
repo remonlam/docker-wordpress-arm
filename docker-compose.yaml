@@ -2,6 +2,13 @@ version: "3"
 services:
   mariadb:
     image: remonlam/docker-wordpress-arm:mariadb-armhf
+    environment:
+    - MYSQL_ROOT_PASSWORD="rootpassword123"
+    - YSQL_ROOT_PASSWORD="rootpassword123
+    - MYSQL_DATABASE="wordpress"
+    -- MYSQL_USER="wordpress"
+    - MYSQL_PASSWORD="password123"
+    -
     deploy:
       replicas: 1
       resources:
@@ -17,6 +24,8 @@ services:
 
   wordpress:
     image: remonlam/docker-wordpress-arm:wordpress-armhf
+    environment:
+    - DEBUG=1
     deploy:
       replicas: 1
       resources:

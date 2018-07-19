@@ -34,7 +34,7 @@ services:
     - WORDPRESS_DB_USER="wordpress"
     - WORDPRESS_DB_PASSWORD="password123"
     deploy:
-      replicas: 1
+      replicas: 2
       resources:
         limits:
           cpus: "0.1"
@@ -50,7 +50,7 @@ services:
   nginx:
     image: remonlam/docker-wordpress-arm:nginx-armhf
     deploy:
-      replicas: 1
+      replicas: 2
       resources:
         limits:
           cpus: "0.1"

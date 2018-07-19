@@ -35,7 +35,7 @@ services:
     - WORDPRESS_DB_PASSWORD="password123"
     volumes:
       - type: bind
-        source: /home/[user]/shared/wordpress
+        source: /home/remonlam/shared/wordpress
         target: /var/www/html
 
     deploy:
